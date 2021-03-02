@@ -5,7 +5,7 @@ from player_classes import *
 
 players = [RandomPlayer(), CustomPlayer()]
 game = Game(players)
-'''
+
 assert game.state == {
     'turn': 1,
     'board_size': [7,7],
@@ -21,7 +21,7 @@ assert game.state == {
     },
     'winner': None
 }
-'''
+
 game.complete_turn()
 print(game.state)
 
