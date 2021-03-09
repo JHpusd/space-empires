@@ -72,7 +72,7 @@ class Game:
         p1 = self.state['players'][1]
         p2 = self.state['players'][2]
         if p1['scout_coords'] == p2['scout_coords']:
-            winner = math.floor(random()*2) + 1
+            winner = round(random()) + 1
             loser = 3 - winner
             self.state['players'][loser]['scout_coords'] = None
 
