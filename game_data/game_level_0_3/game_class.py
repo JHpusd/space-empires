@@ -103,10 +103,10 @@ class Game:
             if scout[0] != player_num:
                 return scout
     
-    def list_all_equal(self, input_list):
-        for i in range(len(input_list)):
+    def all_same_team(self, scout_list):
+        for i in range(len(scout_list)):
             if i != 0:
-                if input_list[i] != input_list[i-1]:
+                if scout_list[i][0] != scout_list[i-1][0]:
                     return False
         return True
     
@@ -125,7 +125,7 @@ class Game:
         for coord in self.combat_coords:
             self.logs.write('\n\tCombat at ' + str(coord) + '\n')
             all_scouts = self.combat_coords[coord]
-            while not self.list_all_equal([scout[0] for scout in all_scouts]):
+            while not self.all_same_team(all_scouts):
                 for scout in all_scouts:
                     attacker = scout
                     defender = self.find_target(scout[0], self.combat_coords[coord])
